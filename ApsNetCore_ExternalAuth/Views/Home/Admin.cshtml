@@ -1,0 +1,11 @@
+﻿@using  System.Security.Claims;
+@model ClaimsPrincipal
+
+<h1>Admin</h1>
+
+@foreach (var item in Model.Claims)
+{
+    <p>@item.Type.ToString() : @item.Value.ToString()</p>
+}
+
+<p>Name: @Model.Claims.</p>
