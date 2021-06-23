@@ -40,7 +40,6 @@ namespace ApsNetCore_ExternalAuth.Controllers
         public async Task<IActionResult> ExternalLoginCallback(string redirectUrl = null)
         {
             var info = await _signInManager.GetExternalLoginInfoAsync();
-            
             var signInResult = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, isPersistent: false, bypassTwoFactor: true);
             if (signInResult.Succeeded)
             {
