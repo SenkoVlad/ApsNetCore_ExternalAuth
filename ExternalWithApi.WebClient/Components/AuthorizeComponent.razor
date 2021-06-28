@@ -1,0 +1,13 @@
+﻿<a href="http://blazor.net" target="_blank" class="ml-md-auto">About</a>
+<AuthorizeView>
+    <NotAuthorized>
+        <a @onclick="() => Login()" target="_blank" class="ml-md-auto">Login</a>
+    </NotAuthorized>
+</AuthorizeView>
+
+@{ 
+    async void Login()
+    {
+
+    }
+}
