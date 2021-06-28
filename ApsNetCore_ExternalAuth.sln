@@ -3,7 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApsNetCore_ExternalAuth", "ApsNetCore_ExternalAuth\ApsNetCore_ExternalAuth.csproj", "{491A3B6D-7CC5-4034-A8D2-1A833550E3C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApsNetCore_ExternalAuth", "ApsNetCore_ExternalAuth\ApsNetCore_ExternalAuth.csproj", "{491A3B6D-7CC5-4034-A8D2-1A833550E3C5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExternalWithApi", "ExternalWithApi", "{73F5EC5E-58E5-4ED1-BB0A-184395B74721}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{D2F2F72E-FA1E-492D-A137-7232A3635090}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{34F99258-8CC6-4CC6-BF36-79722B33A3DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExternalWithApi.Api", "ExternalWithApi.Api\ExternalWithApi.Api.csproj", "{A434D06A-A09F-46BE-BFA2-80015BD0E3F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExternalWithApi.WebClient", "ExternalWithApi.WebClient\ExternalWithApi.WebClient.csproj", "{A80F6B98-D501-45BD-B8A3-703C9FAB6500}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +25,23 @@ Global
 		{491A3B6D-7CC5-4034-A8D2-1A833550E3C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{491A3B6D-7CC5-4034-A8D2-1A833550E3C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{491A3B6D-7CC5-4034-A8D2-1A833550E3C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A434D06A-A09F-46BE-BFA2-80015BD0E3F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A434D06A-A09F-46BE-BFA2-80015BD0E3F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A434D06A-A09F-46BE-BFA2-80015BD0E3F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A434D06A-A09F-46BE-BFA2-80015BD0E3F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A80F6B98-D501-45BD-B8A3-703C9FAB6500}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A80F6B98-D501-45BD-B8A3-703C9FAB6500}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A80F6B98-D501-45BD-B8A3-703C9FAB6500}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A80F6B98-D501-45BD-B8A3-703C9FAB6500}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D2F2F72E-FA1E-492D-A137-7232A3635090} = {73F5EC5E-58E5-4ED1-BB0A-184395B74721}
+		{34F99258-8CC6-4CC6-BF36-79722B33A3DE} = {73F5EC5E-58E5-4ED1-BB0A-184395B74721}
+		{A434D06A-A09F-46BE-BFA2-80015BD0E3F4} = {D2F2F72E-FA1E-492D-A137-7232A3635090}
+		{A80F6B98-D501-45BD-B8A3-703C9FAB6500} = {34F99258-8CC6-4CC6-BF36-79722B33A3DE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FBBF07F6-2F14-4144-AFFB-E7CA3A42B5D8}

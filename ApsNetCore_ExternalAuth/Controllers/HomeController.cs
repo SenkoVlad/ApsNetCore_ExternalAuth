@@ -30,11 +30,16 @@ namespace ApsNetCore_ExternalAuth.Controllers
             return View(claims);
         }
 
-        public IActionResult ExternalLogin(string returnUrl = null) 
+        public IActionResult ExternalLogin(string ReturnUrl = null) 
         {
-            var redirectUrl = Url.Action(nameof(ExternalLoginCallback), "Home", new { returnUrl });
+            var redirectUrl = Url.Action(nameof(ExternalLoginCallback), "Home", new { ReturnUrl });
             var properties = _signInManager.ConfigureExternalAuthenticationProperties("Google", redirectUrl);
             return Challenge(properties, "Google");
+        }
+
+        public IActionResult AccessDenied()
+        {
+            return View();
         }
 
         public async Task<IActionResult> ExternalLoginCallback(string redirectUrl = null)

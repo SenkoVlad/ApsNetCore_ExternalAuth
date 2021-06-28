@@ -24,40 +24,32 @@ namespace ApsNetCore_ExternalAuth
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AppDbContext>(option => 
+            services.AddDbContext<AppDbContext>(option =>
             {
                 option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
             services.AddIdentity<User, Role>()
                     .AddEntityFrameworkStores<AppDbContext>();
-            services
-                .AddAuthentication(options =>
-                {
-                    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                    options.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
-                })
-                //.AddJwtBearer(options =>
-                //{
-                //    options.RequireHttpsMetadata = false;
-                //    options.TokenValidationParameters = new TokenValidationParameters
-                //    {
-                //        ValidateIssuer = true,
-                //        ValidIssuer = AuthSettings.ISSUER,
+            services.AddAuthentication(options =>
+                    {
+                        options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                        //   options.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
+                    })
+                    .AddGoogle(options =>
+                    {
+                        options.ClientId = Configuration["Authentication:Google:ClientId"];
+                        options.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+                    })
+                    .AddCookie(option =>
+                    {
+                        option.Cookie.IsEssential = true;
+                        option.LoginPath = "/Home/ExternalLogin/";
+                    });
 
-                //        ValidateAudience = true,
-                //        ValidAudience = AuthSettings.AUDIENCE,
-                //        ValidateLifetime = true,
-
-                //        IssuerSigningKey = AuthSettings.GetSymmetricSecurityKey(),
-                //        ValidateIssuerSigningKey = true,
-                //    };
-                //})
-                .AddCookie()
-                .AddGoogle(options =>
-                {
-                    options.ClientId = Configuration["Authentication:Google:ClientId"];
-                    options.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
-                });
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = "/Home/ExternalLogin/";
+            });
             services.AddControllersWithViews();
         }
 
